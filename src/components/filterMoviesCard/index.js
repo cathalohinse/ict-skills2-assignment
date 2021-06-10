@@ -33,7 +33,7 @@ export default function FilterMoviesCard(props) {
     {id: 1, name: "Animation"},
     {id: 2, name: "Comedy"},
     {id: 3, name: "Thriller"}
-  ]
+  ];
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -63,6 +63,9 @@ export default function FilterMoviesCard(props) {
               );
             })}
           </Select>
+
+
+
         </FormControl>
       </CardContent>
       <CardMedia
