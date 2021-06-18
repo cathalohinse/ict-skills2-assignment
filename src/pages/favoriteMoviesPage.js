@@ -26,7 +26,6 @@ const FavoriteMoviesPage = () => {
     return <Spinner />;
   }
   const favoriteMovies = favoriteMovieQueries.map((q) => q.data);
-  const toDo = () => true;
 
   return (
     <PageTemplate
