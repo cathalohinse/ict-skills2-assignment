@@ -3,18 +3,18 @@ import { MoviesContext } from "../../contexts/moviesContext";
 import IconButton from "@material-ui/core/IconButton";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 
-const PlaylistAddIcon = ({ movie }) => {
+const AddMustWatchIcon = ({ movie }) => {
   const context = useContext(MoviesContext);
 
-  const handlePlaylistAdd = (e) => {
+  const handleAddMustWatch = (e) => {
     e.preventDefault();
-    context.playlistAdd(movie);
+    context.addMustWatch(movie);
   };
   return (
-    <IconButton aria-label="add to watch list" onClick={handlePlaylistAdd}>
+    <IconButton aria-label="add to watch list" onClick={handleAddMustWatch}>
       <PlaylistAddIcon color="primary" fontSize="large" />
     </IconButton>
   );
 };
 
-export default PlaylistAddIcon;
+export default AddMustWatchIcon;
