@@ -86,3 +86,13 @@ export const getMovie = async ( args ) => {
     }
     return response.json();
   };
+
+  export const getNowPlayingMovies = async () => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    );
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  };
