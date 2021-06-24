@@ -81,6 +81,13 @@ export default function MovieCard({ movie, action }) {
           More Info ...
           </Button>
         </Link>
+
+        <Link to={`/movies/${movie.id}/similar`}>
+          <Button variant="outlined" size="medium" color="primary">
+          Similar Movies ...
+          </Button>
+        </Link>
+
       </CardActions>
     </Card>
   );
