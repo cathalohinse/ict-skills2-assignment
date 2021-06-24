@@ -36,6 +36,10 @@ const MovieDetails = ({ movie }) => {
 
   return (
     <>
+      <Typography component="ul" className={classes.root}>
+      {movie.status}
+      </Typography>
+
       <Typography variant="h5" component="h3">
         Overview
       </Typography>
@@ -53,8 +57,6 @@ const MovieDetails = ({ movie }) => {
             <Chip label={g.name} className={classes.chip} />
           </li>
         ))}
-
-
       </Paper>
       <Paper component="ul" className={classes.root}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
@@ -79,6 +81,29 @@ const MovieDetails = ({ movie }) => {
           </li>
         ))}
       </Paper>
+
+      <Paper component="ul" className={classes.root}>
+        <li>
+          <Chip label="Production Companies" className={classes.chip} color="primary" />
+        </li>
+        {movie.production_companies.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} className={classes.chip} />
+          </li>
+        ))}
+      </Paper>
+
+      <Paper component="ul" className={classes.root}>
+        <li>
+          <Chip label="Spoken Languages" className={classes.chip} color="primary" />
+        </li>
+        {movie.spoken_languages.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} className={classes.chip} />
+          </li>
+        ))}
+      </Paper>
+     
 
       <Fab
         color="secondary"
