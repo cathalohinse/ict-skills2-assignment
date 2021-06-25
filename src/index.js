@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
@@ -15,6 +15,10 @@ import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import SimilarMoviesPage from "./pages/similarMoviesPage";
 import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
 import MustWatchMoviesPage from "./pages/mustWatchMoviesPage";
+import LoginPage from "./pages/loginPage";
+import PrivateRoute from "./components/privateRoute";
+import AuthHeader from "./components/authHeader";
+import AuthProvider from "./contexts/authContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +34,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+      <AuthProvider>
         <SiteHeader />
         <MoviesContextProvider>
             {" "}
@@ -38,15 +43,17 @@ const App = () => {
               <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
               <Route exact path="/movies/top_rated" component={TopRatedMoviesPage} />
               <Route exact path="/movies/now_playing" component={NowPlayingMoviesPage} />
-              <Route exact path="/movies/must_watch" component={MustWatchMoviesPage} />
+              <PrivateRoute path="/movies/must_watch" component={MustWatchMoviesPage} />
               <Route exact path="/movies/:id/similar" component={SimilarMoviesPage} />
               <Route path="/reviews/:id" component={MovieReviewPage} />
-              <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+              <PrivateRoute path="/movies/favorites" component={FavoriteMoviesPage} />
               <Route path="/movies/:id" component={MoviePage} />
               <Route exact path="/" component={HomePage} />
+              <Route path="/login" component={LoginPage} />
               <Redirect from="*" to="/" />
             </Switch>
         </MoviesContextProvider>
+        </AuthProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
