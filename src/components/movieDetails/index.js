@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
+import { Link } from "react-router-dom";
+import { ExternalLink } from 'react-external-link';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +36,8 @@ const MovieDetails = ({ movie }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  
+
   return (
     <>
       <Typography component="ul" className={classes.root}>
@@ -47,6 +51,13 @@ const MovieDetails = ({ movie }) => {
       <Typography variant="h6" component="p">
         {movie.overview}
       </Typography>
+      
+      <Link
+      to={{pathname: `${movie.homepage}`}}
+      target="_blank"
+      rel="noopener noreferrer">
+        Further Details
+        </Link>
 
       <Paper component="ul" className={classes.root}>
         <li>
@@ -101,6 +112,7 @@ const MovieDetails = ({ movie }) => {
           <li key={g.name}>
             <Chip label={g.name} className={classes.chip} />
           </li>
+          
         ))}
       </Paper>
      
