@@ -12,7 +12,6 @@ import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
 import { Link } from "react-router-dom";
 import { ExternalLink } from 'react-external-link';
-import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,18 +40,6 @@ const MovieDetails = ({ movie }) => {
 
   return (
     <>
-      <Typography component="ul" className={classes.root}>
-      {movie.status}
-      </Typography>
-
-      <Typography variant="h5" component="h3">
-        Overview
-      </Typography>
-
-      <Typography variant="h6" component="p">
-        {movie.overview}
-      </Typography>
-      
       <Link
       to={{pathname: `${movie.homepage}`}}
       target="_blank"
@@ -60,41 +47,11 @@ const MovieDetails = ({ movie }) => {
         Further Details
         </Link>
 
-        <Link to={`/actors/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-          Credits
-          </Button>
-        </Link>
-
-
       <Paper component="ul" className={classes.root}>
         <li>
-          <Chip label="Genres" className={classes.chip} color="primary" />
+          <Chip label="Cast" className={classes.chip} color="primary" />
         </li>
-        {movie.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
-        ))}
-      </Paper>
-      <Paper component="ul" className={classes.root}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${movie.revenue.toLocaleString()}`}
-        />
-        <Chip
-          icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count}`}
-        />
-        <Chip label={`Released: ${movie.release_date}`} />
-      </Paper>
-
-      <Paper component="ul" className={classes.root}>
-        <li>
-          <Chip label="Production Countries" className={classes.chip} color="primary" />
-        </li>
-        {movie.production_countries.map((g) => (
+        {movie.cast.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} className={classes.chip} />
           </li>
@@ -103,28 +60,14 @@ const MovieDetails = ({ movie }) => {
 
       <Paper component="ul" className={classes.root}>
         <li>
-          <Chip label="Production Companies" className={classes.chip} color="primary" />
+          <Chip label="Crew" className={classes.chip} color="primary" />
         </li>
-        {movie.production_companies.map((g) => (
+        {movie.crew.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} className={classes.chip} />
           </li>
         ))}
       </Paper>
-
-      <Paper component="ul" className={classes.root}>
-        <li>
-          <Chip label="Spoken Languages" className={classes.chip} color="primary" />
-        </li>
-        {movie.spoken_languages.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
-          
-        ))}
-      </Paper>
-     
-
       <Fab
         color="secondary"
         variant="extended"

@@ -96,3 +96,16 @@ export const getMovie = async ( args ) => {
     }
     return response.json();
   };
+
+  export const getActors = async ( args ) => {
+    // console.log(args)
+    // eslint-disable-next-line no-unused-vars
+    const [prefix, { id }] = args.queryKey;
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    );
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  };
