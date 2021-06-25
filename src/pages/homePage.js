@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import {getMovies} from '../api/tmdb-api';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
+import AddMustWatchIcon from '../components/cardIcons/addMustWatch';
 
 const HomePage = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
