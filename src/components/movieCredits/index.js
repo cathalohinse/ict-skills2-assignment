@@ -12,6 +12,9 @@ import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
 import { Link } from "react-router-dom";
 import { ExternalLink } from 'react-external-link';
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieDetails = ({ movie }) => {
+export default function MovieCredits({movie, action, credit}) {
+//const MovieCredits = ({ movie }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -46,17 +50,40 @@ const MovieDetails = ({ movie }) => {
       rel="noopener noreferrer">
         Further Details
         </Link>
-
-      <Paper component="ul" className={classes.root}>
+        
+        
+        
+        <Card className={classes.card}>
+        <CardActions disableSpacing>
+    
+        <Link to={`/credits/${movie.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+          
+          <Paper component="ul" className={classes.root}>
         <li>
           <Chip label="Cast" className={classes.chip} color="primary" />
         </li>
         {movie.cast.map((g) => (
           <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
+            <Chip label={g.id} className={classes.chip} />
           </li>
         ))}
       </Paper>
+
+
+          </Button>
+        </Link>
+
+
+      </CardActions>
+    </Card>
+
+
+
+
+
+
+
 
       <Paper component="ul" className={classes.root}>
         <li>
@@ -82,5 +109,5 @@ const MovieDetails = ({ movie }) => {
       </Drawer>
     </>
   );
-};
-export default  MovieDetails ;
+//};
+}

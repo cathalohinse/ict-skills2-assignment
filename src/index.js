@@ -19,7 +19,7 @@ import LoginPage from "./pages/loginPage";
 import PrivateRoute from "./components/privateRoute";
 import AuthHeader from "./components/authHeader";
 import AuthProvider from "./contexts/authContext";
-import CreditPage from "./pages/creditDetailsPage";
+import CreditPage from "./pages/movieCreditsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
