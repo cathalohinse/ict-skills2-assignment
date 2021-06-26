@@ -97,7 +97,7 @@ export const getMovie = async ( args ) => {
     return response.json();
   };
 
-  export const getActors = async ( args ) => {
+  export const getCredits = async ( args ) => {
     // console.log(args)
     // eslint-disable-next-line no-unused-vars
     const [prefix, { id }] = args.queryKey;

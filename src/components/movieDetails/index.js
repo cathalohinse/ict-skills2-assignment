@@ -60,7 +60,7 @@ const MovieDetails = ({ movie }) => {
         Further Details
         </Link>
 
-        <Link to={`/actors/${movie.id}`}>
+        <Link to={`/credits/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
           Credits
           </Button>

@@ -1,18 +1,18 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import ActorDetails from "../components/actorDetails";
+import CreditDetails from "../components/creditDetails";
 import PageTemplate from "../components/templateMoviePage";
 //import useMovie from "../hooks/useMovie";
 import { getMovie } from '../api/tmdb-api';
-import { getActors } from '../api/tmdb-api'
+import { getCredits } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 
-const ActorDetailsPage = (props) => {
+const CreditDetailsPage = (props) => {
   const { id } = props.match.params
-const { data: movie, error, isLoading, isError } = useQuery(
+const { data: movie, credit, error, isLoading, isError } = useQuery(
   ["movie", { id: id }],
-  getActors,
+  getCredits,
   getMovie
 );
 
@@ -30,7 +30,7 @@ if (isError) {
       {movie ? (
         <>
           
-            <ActorDetails movie={movie} />
+            <CreditDetails movie={movie} />
           
         </>
       ) : (
@@ -40,4 +40,4 @@ if (isError) {
   );
 };
 
-export default withRouter(ActorDetailsPage);
+export default withRouter(CreditDetailsPage);

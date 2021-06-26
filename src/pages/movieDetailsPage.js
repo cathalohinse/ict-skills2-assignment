@@ -6,7 +6,7 @@ import PageTemplate from "../components/templateMoviePage";
 import { getMovie } from '../api/tmdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
-import { getActors } from '../api/tmdb-api';
+import { getCredits } from '../api/tmdb-api';
 
 const MovieDetailsPage = (props) => {
   const { id } = props.match.params
