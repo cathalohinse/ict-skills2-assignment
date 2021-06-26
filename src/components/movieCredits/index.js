@@ -45,29 +45,34 @@ export default function MovieCredits({movie, credit}) {
             </li>
           {movie.cast.map((g) => (
             <Link to={`/credits/${g.credit_id}`}>
-              <Button variant="outlined" size="medium" color="primary">
-                <table>
+              <Button variant="outlined" size="small" color="primary">
                 <li key={g.name}>
                   <Chip label={g.name} className={classes.chip} />
                   <Chip label={g.character} className={classes.chip} />
                 </li>
-                </table>
+              </Button>
+            </Link>
+          ))}
+          </Paper>
+        </CardActions>
+        
+        <CardActions disableSpacing>
+          <Paper component="ul" className={classes.root}>
+            <li>
+              <Chip label="Crew" className={classes.chip} color="primary" />
+            </li>
+            {movie.crew.map((g) => (
+            <Link to={`/credits/${g.credit_id}`}>
+              <Button size="small" color="primary">
+                <li key={g.name}>
+                  <Chip label={g.name} className={classes.chip} />
+                </li>
               </Button>
             </Link>
           ))}
           </Paper>
         </CardActions>
       </Card>
-           <Paper component="ul" className={classes.root}>
-             <li>
-               <Chip label="Crew" className={classes.chip} color="primary" />
-             </li>
-               {movie.crew.map((g) => (
-             <li key={g.name}>
-                <Chip label={g.name} className={classes.chip} />
-             </li>
-                ))}
-           </Paper>
       <Fab
         color="secondary"
         variant="extended"
