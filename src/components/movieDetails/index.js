@@ -42,7 +42,7 @@ const MovieDetails = ({ movie }) => {
   return (
     <>
       <Typography component="ul" className={classes.root}>
-      {movie.status}
+        {movie.status}
       </Typography>
 
       <Typography variant="h5" component="h3">
@@ -54,29 +54,29 @@ const MovieDetails = ({ movie }) => {
       </Typography>
       
       <Link
-      to={{pathname: `${movie.homepage}`}}
-      target="_blank"
-      rel="noopener noreferrer">
+        to={{pathname: `${movie.homepage}`}}
+        target="_blank"
+        rel="noopener noreferrer">
         Further Details
-        </Link>
+      </Link>
 
-        <Link to={`/credits/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
+      <Link to={`/moviecredits/${movie.id}`}>
+        <Button variant="outlined" size="medium" color="primary">
           Credits
-          </Button>
-        </Link>
-
+        </Button>
+      </Link>
 
       <Paper component="ul" className={classes.root}>
         <li>
           <Chip label="Genres" className={classes.chip} color="primary" />
         </li>
-        {movie.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
+          {movie.genres.map((g) => (
+        <li key={g.name}>
+          <Chip label={g.name} className={classes.chip} />
+        </li>
         ))}
       </Paper>
+
       <Paper component="ul" className={classes.root}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
@@ -94,10 +94,10 @@ const MovieDetails = ({ movie }) => {
         <li>
           <Chip label="Production Countries" className={classes.chip} color="primary" />
         </li>
-        {movie.production_countries.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
+          {movie.production_countries.map((g) => (
+        <li key={g.name}>
+          <Chip label={g.name} className={classes.chip} />
+        </li>
         ))}
       </Paper>
 
@@ -105,10 +105,10 @@ const MovieDetails = ({ movie }) => {
         <li>
           <Chip label="Production Companies" className={classes.chip} color="primary" />
         </li>
-        {movie.production_companies.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
+          {movie.production_companies.map((g) => (
+        <li key={g.name}>
+          <Chip label={g.name} className={classes.chip} />
+        </li>
         ))}
       </Paper>
 
@@ -116,22 +116,20 @@ const MovieDetails = ({ movie }) => {
         <li>
           <Chip label="Spoken Languages" className={classes.chip} color="primary" />
         </li>
-        {movie.spoken_languages.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
-          
+          {movie.spoken_languages.map((g) => (
+        <li key={g.name}>
+          <Chip label={g.name} className={classes.chip} />
+        </li>  
         ))}
       </Paper>
      
-
       <Fab
         color="secondary"
         variant="extended"
         onClick={() =>setDrawerOpen(true)}
         className={classes.fab}
       >
-        <NavigationIcon />
+      <NavigationIcon />
         Reviews
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>

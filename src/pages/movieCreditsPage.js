@@ -26,7 +26,6 @@ if (isError) {
 
   return (
     <>
-    Credits:
       {movie ? (
         <>
           

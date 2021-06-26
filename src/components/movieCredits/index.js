@@ -1,17 +1,12 @@
 import React, { useState} from "react";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
-import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import MonetizationIcon from "@material-ui/icons/MonetizationOn";
-import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
 import { Link } from "react-router-dom";
-import { ExternalLink } from 'react-external-link';
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
@@ -35,73 +30,51 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MovieCredits({movie, action, credit}) {
+export default function MovieCredits({movie, credit}) {
 //const MovieCredits = ({ movie }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  
-
   return (
     <>
-      <Link
-      to={{pathname: `${movie.homepage}`}}
-      target="_blank"
-      rel="noopener noreferrer">
-        Further Details
-        </Link>
-        
-        
-        
-        <Card className={classes.card}>
+      <Card className={classes.card}>
         <CardActions disableSpacing>
-    
-        <Link to={`/credits/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-          
           <Paper component="ul" className={classes.root}>
-        <li>
-          <Chip label="Cast" className={classes.chip} color="primary" />
-        </li>
-        {movie.cast.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.id} className={classes.chip} />
-          </li>
-        ))}
-      </Paper>
-
-
-          </Button>
-        </Link>
-
-
-      </CardActions>
-    </Card>
-
-
-
-
-
-
-
-
-      <Paper component="ul" className={classes.root}>
-        <li>
-          <Chip label="Crew" className={classes.chip} color="primary" />
-        </li>
-        {movie.crew.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} className={classes.chip} />
-          </li>
-        ))}
-      </Paper>
+            <li>
+              <Chip label="Cast" className={classes.chip} color="primary" />
+            </li>
+          {movie.cast.map((g) => (
+            <Link to={`/credits/${g.credit_id}`}>
+              <Button variant="outlined" size="medium" color="primary">
+                <table>
+                <li key={g.name}>
+                  <Chip label={g.name} className={classes.chip} />
+                  <Chip label={g.character} className={classes.chip} />
+                </li>
+                </table>
+              </Button>
+            </Link>
+          ))}
+          </Paper>
+        </CardActions>
+      </Card>
+           <Paper component="ul" className={classes.root}>
+             <li>
+               <Chip label="Crew" className={classes.chip} color="primary" />
+             </li>
+               {movie.crew.map((g) => (
+             <li key={g.name}>
+                <Chip label={g.name} className={classes.chip} />
+             </li>
+                ))}
+           </Paper>
       <Fab
         color="secondary"
         variant="extended"
         onClick={() =>setDrawerOpen(true)}
         className={classes.fab}
       >
-        <NavigationIcon />
+      <NavigationIcon />
         Reviews
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
@@ -109,5 +82,4 @@ export default function MovieCredits({movie, action, credit}) {
       </Drawer>
     </>
   );
-//};
 }
