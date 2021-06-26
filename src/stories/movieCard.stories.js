@@ -7,7 +7,7 @@ import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 
 export default {
-  title: "Home Page/MovieCard",
+  title: "Movies/MovieCard",
   component: MovieCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

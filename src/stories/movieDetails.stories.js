@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router";
 import MoviesContextProvider from "../contexts/moviesContext";
 
 export default {
-  title: "Movie Details Page/MovieDetails",
+  title: "Movies/MovieDetails",
   component: MovieDetails,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CreditHeader = ( { credit, history}) => {
+const HeaderCredit = ( { credit, history}) => {
   const classes = useStyles();
 
   return (
@@ -32,7 +32,7 @@ const CreditHeader = ( { credit, history}) => {
       <Typography variant="h4" component="h3">
         {credit.person.name}
         <br />
-        <span className={classes.character}>{`   "${credit.media.character}"`} </span>
+        <span className={classes.character}>{`"${credit.media.character}"`} </span>
       </Typography>
       <IconButton aria-label="go forward" onClick={() => history.goForward() } >
         <ArrowForwardIcon color="primary" fontSize="large" />
@@ -41,4 +41,4 @@ const CreditHeader = ( { credit, history}) => {
   );
 };
 
-export default withRouter(CreditHeader);
+export default withRouter(HeaderCredit);

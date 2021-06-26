@@ -1,7 +1,8 @@
 import React from "react";
-import FilterMoviesCard from "../components/filterMoviesCard";
+import TemplateMovieListPage from "../components/templateMovieListPage";
+import SampleMovie from "./sampleData";
 import { MemoryRouter } from "react-router";
-import { action } from "@storybook/addon-actions";
+import MoviesContextProvider from "../contexts/moviesContext";
 import { QueryClientProvider, QueryClient } from "react-query";
 
 const queryClient = new QueryClient({
@@ -15,15 +16,15 @@ const queryClient = new QueryClient({
 });
 
 export default {
-  title: "Movies/FilterMoviesCard",
-  component: FilterMoviesCard,
+  title: "Movies/TemplateMovieListPage",
+  component: TemplateMovieListPage,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
+    (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
     (Story) => <QueryClientProvider client={queryClient}>{Story()}</QueryClientProvider>
   ],
 };
 
-export const Basic = () => {
-  return <FilterMoviesCard onUserInput={action("filter input")} />;
-};
+export const Basic = () => <TemplateMovieListPage movie={SampleMovie} />;
+
 Basic.storyName = "Default";

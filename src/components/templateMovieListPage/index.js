@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-function MovieListPageTemplate({ movies, title, action }) {
+function TemplateMovieListPage({ movies, title, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
@@ -48,4 +48,4 @@ function MovieListPageTemplate({ movies, title, action }) {
     </Grid>
   );
 }
-export default MovieListPageTemplate;
+export default TemplateMovieListPage;

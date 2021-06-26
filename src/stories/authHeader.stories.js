@@ -1,18 +1,18 @@
 import React from "react";
-import CreditDetails from "../components/creditDetails";
-import SampleCredit from "./sampleCredit";
+import AuthHeader from "../components/authHeader";
+import SampleMovie from "./sampleData";
 import { MemoryRouter } from "react-router";
 //import MoviesContextProvider from "../contexts/moviesContext";
 
 export default {
-  title: "Credits/CreditDetails",
-  component: CreditDetails,
+  title: "Authorisation/AuthHeader",
+  component: AuthHeader,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
     //(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
   ],
 };
 
-export const Basic = () => <CreditDetails credit={SampleCredit} />;
+export const Basic = () => <AuthHeader credit={SampleMovie} />;
 
 Basic.storyName = "Default";

@@ -37,8 +37,6 @@ const MovieDetails = ({ movie }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  
-
   return (
     <>
       <Typography component="ul" className={classes.root}>
