@@ -55,7 +55,9 @@ const MovieDetails = ({ movie }) => {
         to={{pathname: `${movie.homepage}`}}
         target="_blank"
         rel="noopener noreferrer">
-        Further Details
+        <Button variant="outlined" size="medium" color="primary">
+          Further Details
+        </Button>
       </Link>
 
       <Link to={`/moviecredits/${movie.id}`}>
