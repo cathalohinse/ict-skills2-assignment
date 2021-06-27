@@ -11,7 +11,15 @@ export default {
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
   ],
 };
-
 export const Basic = () => <HeaderCredit credit={SampleCredit} />;
-
 Basic.storyName = "Default";
+
+export const Exceptional = () => {
+  const sampleNoCredit = { ...SampleCredit, media: "" };
+  return (
+    <HeaderCredit
+      credit={sampleNoCredit}
+    />
+  );
+};
+Exceptional.storyName = "exception";

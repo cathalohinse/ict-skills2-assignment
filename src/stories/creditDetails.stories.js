@@ -7,10 +7,7 @@ import { MemoryRouter } from "react-router";
 export default {
   title: "Credits/CreditDetails",
   component: CreditDetails,
-  decorators: [
-    (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    //(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
-  ],
+
 };
 
 export const Basic = () => <CreditDetails credit={SampleCredit} />;

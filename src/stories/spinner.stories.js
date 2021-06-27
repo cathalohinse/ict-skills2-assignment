@@ -6,11 +6,7 @@ import { MemoryRouter } from "react-router";
 
 export default {
   title: "Spinner",
-  component: Spinner,
-  decorators: [
-    (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    //(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
-  ],
+  component: Spinner
 };
 
 export const Basic = () => <Spinner credit={SampleMovie} />;

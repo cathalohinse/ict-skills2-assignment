@@ -6,11 +6,7 @@ import { MemoryRouter } from "react-router";
 
 export default {
   title: "Reviews/MovieReview",
-  component: MovieReview,
-  decorators: [
-    (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    //(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
-  ],
+  component: MovieReview
 };
 
 export const Basic = () => <MovieReview review={SampleMovie} />;

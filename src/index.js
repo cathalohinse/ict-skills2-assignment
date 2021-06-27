@@ -21,6 +21,7 @@ import AuthHeader from "./components/authHeader";
 import AuthProvider from "./contexts/authContext";
 import MovieCreditsPage from "./pages/movieCreditsPage";
 import CreditsPage from "./pages/creditDetailsPage";
+import SearchPage from "./pages/searchPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,6 +53,7 @@ const App = () => {
               <Route path="/movies/:id" component={MoviePage} />
               <Route path="/moviecredits/:id" component={MovieCreditsPage} />
               <Route path="/credits/:id" component={CreditsPage} />
+              <Route path="/search" component={SearchPage} />
               <Route exact path="/" component={HomePage} />
               <Route path="/login" component={LoginPage} />
               <Redirect from="*" to="/" />
