@@ -8,7 +8,7 @@ import AddMustWatchIcon from '../components/cardIcons/addMustWatch';
 import Search from '../components/search';
 
 const SearchPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  const {  data, error, isLoading, isError }  = useQuery('search', getMovies)
 
   if (isLoading) {
     return <Spinner />
