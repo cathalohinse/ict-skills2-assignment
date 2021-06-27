@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router";
 //import MoviesContextProvider from "../contexts/moviesContext";
 
 export default {
-  title: "Authorisation/PrivateRoute",
+  title: "Authentication/PrivateRoute",
   component: PrivateRoute,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

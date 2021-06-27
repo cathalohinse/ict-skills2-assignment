@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router";
 //import MoviesContextProvider from "../contexts/moviesContext";
 
 export default {
-  title: "Authorisation/AuthHeader",
+  title: "Authentication/AuthHeader",
   component: AuthHeader,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
